@@ -16,11 +16,13 @@ void IntegerOverflow(){
     x += 1; // Error: the add result can't fit in x   
 }
 
+//-fsanitize=shift
 void InvalidShift(){
     int32_t x = (1U << 31) - 1;
     x <<= 2; // Error: the shift result can't fit in x
 }
 
+//-fsanitize=bounds
 void OutOfBounds(){
     int array[5];
     for (int i = 0; i <= 5; ++i) {
